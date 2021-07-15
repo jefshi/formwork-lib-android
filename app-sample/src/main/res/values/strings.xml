@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">自定义View</string>
+    <!-- TODO 模板，APP 名称修改 -->
+    <string name="app_name">库Case</string>
 </resources>

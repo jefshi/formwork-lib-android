@@ -1,1 +1,3 @@
-include ':sample', ':lib-customview'
+rootProject.name = 'LibCase' // TODO 模板，组件库项目重命名
+include ':app-sample'
+include ':lib-customview' // TODO 模板，组件库 module 重命名

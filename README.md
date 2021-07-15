@@ -1,5 +1,38 @@
-# formwork-lib-android
-Android 依赖库项目模板
+# Android 组件库项目模板
 
-### module
-lib、sample
+## 前言
+
+本库主要提供 Android 组件库项目模板。该模板项目中有大量的 TODO 项，均以【TODO 模板】开头。
+
+这些 TODO 项需要按组件库的具体功能进行补充。
+
+定位：
+1. 该框架属于最底层的基础组件
+2. 该框架不应与后台业务逻辑耦合
+3. 该框架不应与具体业务逻辑耦合，应当往上层抛，或者通过接口等方式实现
+4. TODO 模板，README 补充
+
+## 集成步骤
+
+TODO 模板，README 补充
+
+## 使用参考：Demo + Sample
+
+为有效降低使用成本，以及保留库的可扩展性，库的内容会比较多，这里提供 Demo + Sample 的方式降低学习成本
+- 库本身带 Demo 示例，主要是方便复制参考，以及及时更新最新用法。
+- Sample 则用若干个具体案例进行演示，方便看到实际使用效果
+
+[库 Demo 所在目录](/lib-customview)
+
+### 库的基本用法
+
+```
+TODO 模板，README 补充
+```
+
+TODO 模板，README 补充
+
+## 历史版本
+
+x.x.x
+- TODO 模板，README 补充

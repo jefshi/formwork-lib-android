@@ -1,3 +1,4 @@
 <resources>
+    <!-- TODO 模板，组件库名修改 -->
     <string name="app_name">customview</string>
 </resources>
