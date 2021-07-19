@@ -17,6 +17,7 @@ ext {
             preference          : 'androidx.preference:preference:1.1.1',
 
             // 测试单元
+            junit_runner        : 'androidx.test.runner.AndroidJUnitRunner',
             junit               : 'junit:junit:4.13.1',
             junit_ext           : 'androidx.test.ext:junit:1.1.2',
             espresso_core       : 'androidx.test.espresso:espresso-core:3.3.0',

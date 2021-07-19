@@ -1,4 +1,4 @@
-apply from: "${rootDir.path}/gradle/lib-config.gradle"
+apply from: "${rootDir.path}/gradle/build-lib.gradle"
 
 android {
 
