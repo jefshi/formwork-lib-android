@@ -1,6 +1,8 @@
 package com.csp.sample.customview;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 /**
  * @author csp
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,5 +23,19 @@ public class MainActivity extends AppCompatActivity {
                 BuildConfig.VERSION_NAME);
 
         ((TextView) findViewById(R.id.tv_version)).setText(versionInfo);
+    }
+
+    private Context getContext() {
+        return this;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_version:
+                break;
+            default:
+                break;
+        }
     }
 }
