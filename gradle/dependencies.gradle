@@ -26,13 +26,18 @@ ext {
             butterknife         : 'com.jakewharton:butterknife:10.2.3',
             butterknife_compiler: 'com.jakewharton:butterknife-compiler:10.2.3',
 
+            // 数据相关
+            gson                : 'com.google.code.gson:gson:2.8.2',
+
+            // rxJava
+            rxjava              : 'io.reactivex.rxjava2:rxjava:2.2.2',
+            rxandroid           : 'io.reactivex.rxjava2:rxandroid:2.1.0',
+
             // 网络框架
             retrofit            : 'com.squareup.retrofit2:retrofit:2.4.0',
             converter_gson      : 'com.squareup.retrofit2:converter-gson:2.4.0',
             adapter_rxjava2     : 'com.squareup.retrofit2:adapter-rxjava2:2.3.0',
             logging_interceptor : 'com.squareup.okhttp3:logging-interceptor:3.14.9',
-            rxjava              : 'io.reactivex.rxjava2:rxjava:2.2.2',
-            rxandroid           : 'io.reactivex.rxjava2:rxandroid:2.1.0',
 
             // 其他
             XXPermissions       : 'com.github.getActivity:XXPermissions:10.8', // 权限请求框架
