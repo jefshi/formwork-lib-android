@@ -1,18 +1,17 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion project.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
 
         testInstrumentationRunner dep.junit_runner
         consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
-
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -21,8 +20,8 @@ android {
 
     // java 1.8
     compileOptions {
-        sourceCompatibility rootProject.ext.sourceCompatibilityVersion
-        targetCompatibility rootProject.ext.targetCompatibilityVersion
+        sourceCompatibility project.sourceCompatibilityVersion
+        targetCompatibility project.targetCompatibilityVersion
     }
 }
 

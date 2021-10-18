@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 
 // [Gradle 编译配置]相关的提交内容见博客【Android Gradle 常用配置】
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion project.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
 
         testInstrumentationRunner dep.junit_runner
 
@@ -16,14 +16,14 @@ android {
 
     // java 1.8
     compileOptions {
-        sourceCompatibility rootProject.ext.sourceCompatibilityVersion
-        targetCompatibility rootProject.ext.targetCompatibilityVersion
+        sourceCompatibility project.sourceCompatibilityVersion
+        targetCompatibility project.targetCompatibilityVersion
     }
 
     // 自动签名
     signingConfigs {
         // 加载配置文件
-        File propertiesFile = project.rootProject.file('keystore/keystore.properties')
+        File propertiesFile = rootProject.file('keystore/keystore.properties')
         Properties properties = new Properties()
         properties.load(propertiesFile.newDataInputStream())
 
