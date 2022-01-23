@@ -23,6 +23,23 @@ android {
         sourceCompatibility project.sourceCompatibilityVersion
         targetCompatibility project.targetCompatibilityVersion
     }
+
+    // 修改输出库文件设置
+    libraryVariants.all { variant ->
+        variant.outputs.all { output ->
+            // 修改输出库文件名称
+            def fileName = output.outputFileName
+            if (fileName == null || !fileName.endsWith(".aar")) {
+                return
+            }
+            def versionName = android.defaultConfig.versionName
+            output.outputFileName = "${project.name}-${variant.buildType.name}-v${versionName}.aar"
+            println "设置输出库文件名称：${output.outputFileName}"
+            variant.assemble.doLast {
+                println "\n打包成功，库文件名称：${output.outputFileName}"
+            }
+        }
+    }
 }
 
 dependencies {
