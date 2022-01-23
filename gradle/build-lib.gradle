@@ -4,7 +4,7 @@ android {
     compileSdkVersion project.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion project.minSdkVersion
+        minSdkVersion project.lib_minSdkVersion
         targetSdkVersion project.targetSdkVersion
 
         testInstrumentationRunner dep.junit_runner

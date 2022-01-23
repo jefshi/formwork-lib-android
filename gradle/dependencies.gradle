@@ -1,7 +1,8 @@
 ext {
     // sdk version
     compileSdkVersion = 30
-    minSdkVersion = 19
+    app_minSdkVersion = 19
+    lib_minSdkVersion = 19
     targetSdkVersion = 30
 
     // java version
