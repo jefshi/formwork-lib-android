@@ -27,8 +27,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    implementation dep.appcompat
 
+    // 单元测试
     testImplementation dep.junit
     androidTestImplementation dep.junit_ext
     androidTestImplementation dep.espresso_core
