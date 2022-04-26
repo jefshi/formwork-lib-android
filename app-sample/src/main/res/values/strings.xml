@@ -3,6 +3,6 @@
     <!-- TODO 模板，APP 名称修改 -->
     <string name="app_name">库Case</string>
 
-    <string name="version_info">打包时间：%s\nversionCode：%s\nversionName：%s</string>
+    <string name="version_info">打包时间：%1$s\nversionCode：%2$s\nversionName：%3$s</string>
 
 </resources>
