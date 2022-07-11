@@ -1,0 +1,20 @@
+apply plugin: 'java-library'
+
+sourceCompatibility = project.sourceCompatibilityVersion
+targetCompatibility = project.targetCompatibilityVersion
+
+// maven 发布
+apply from: "${rootDir.path}/gradle/maven_central_jar.gradle"
+uploadArchives {
+    repositories.mavenDeployer {
+        pom.project {
+            name 'lib-jar' // TODO 模板，module 名称修改
+            artifactId 'lib-jar' // TODO 模板，module 名称修改
+            version '1.0.0'
+        }
+    }
+}
+
+// 依赖
+dependencies {
+}

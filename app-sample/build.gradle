@@ -13,4 +13,7 @@ dependencies {
 
     // 其他 Module
     implementation project(':lib-customview') // TODO 模板，module 名称修改，并准备 maven 引用
+    implementation project(':lib-jar') // TODO 模板，module 名称修改，并准备 maven 引用
+    // implementation 'xxx:lib-jar:1.0.0' // TODO 模板，jar module 名称修改，并准备 maven 引用，用于发布组件
+    // implementation 'xxx:lib-customview:1.0.0' // TODO 模板，jar module 名称修改，并准备 maven 引用，用于发布组件
 }
