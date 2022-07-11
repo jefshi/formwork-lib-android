@@ -3,12 +3,13 @@ apply from: "${rootDir.path}/gradle/build-lib.gradle"
 android {
     defaultConfig {
         versionCode 1
-        versionName "1.0.0"
+        versionName '1.0.0'
     }
 }
 
 // maven 发布，必须在 android.defaultConfig.versionName 配置之后，以便获取版本名称
-apply from: "${rootDir.path}/gradle/maven_central.gradle"
+apply from: "${rootDir.path}/gradle/maven_central.gradle" // TODO 模板，发布到 Maven Central
+// apply from: "${rootDir.path}/gradle/maven_private.gradle" // TODO 模板，发布到 Maven 私服
 uploadArchives {
     repositories.mavenDeployer {
         pom.project {

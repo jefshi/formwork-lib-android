@@ -14,11 +14,14 @@ ext {
 
     dep = [
             // Android 系统
+            annotation          : 'androidx.annotation:annotation:1.2.0',
             appcompat           : 'androidx.appcompat:appcompat:1.2.0',
-            material            : 'com.google.android.material:material:1.2.1',
-            recyclerview        : 'androidx.recyclerview:recyclerview:1.1.0',
             constraintlayout    : 'androidx.constraintlayout:constraintlayout:2.0.4',
+            localbroadcast      : 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0',
+            material            : 'com.google.android.material:material:1.2.1',
+            multidex            : 'androidx.multidex:multidex:2.0.1',
             preference          : 'androidx.preference:preference:1.1.1',
+            recyclerview        : 'androidx.recyclerview:recyclerview:1.1.0',
 
             // 测试单元
             junit_runner        : 'androidx.test.runner.AndroidJUnitRunner',

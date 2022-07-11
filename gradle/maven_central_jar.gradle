@@ -1,5 +1,5 @@
 /**
- * 发布 Aar 组件到 Maven Central
+ * 发布 Jar 组件到 Maven Central
  * @version 1.0.0
  */
 
@@ -7,14 +7,21 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-// 打包的资源内容，关于 javaDoc 部分，至今未找到能用的
-task androidSourcesJar(type: Jar) {
+// 打包的资源内容：首次生成 javaDoc 会报错，但 build/docs 会正常生成，所以再上传一次就好了
+[javadoc]*.options*.encoding = 'UTF-8'
+task javadocJar(type: Jar) {
+    archiveClassifier.set("javadoc")
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
     archiveClassifier.set("sources")
-    from android.sourceSets.main.java.srcDirs
+    from sourceSets.main.allSource
 }
 
 artifacts {
-    archives androidSourcesJar
+    archives javadocJar
+    archives sourcesJar
 }
 
 // GPG 密钥签名，配置信息放【~/.gradle/gradle.properties】
@@ -52,8 +59,8 @@ uploadArchives {
             name POM_ARTIFACT_ID
             groupId POM_GROUP_ID
             artifactId POM_ARTIFACT_ID
-            version android.defaultConfig.versionName
-            packaging 'aar'
+            version '0.0.0'
+            packaging 'jar'
 
             description POM_DESCRIPTION
             url POM_SCM_URL
