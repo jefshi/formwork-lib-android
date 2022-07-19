@@ -9,14 +9,18 @@ import androidx.annotation.StringRes;
 /**
  * Toast 相关
  * Created by csp on 2019/08/06
- * Modified by csp on 2021/04/07
+ * Modified by csp on 2021/08/10
  *
  * @author csp
  * @version 1.0.1
  */
+@SuppressWarnings("unused")
 public class ToastUtil {
 
-    private static Toast mToast; // 目的是防止多个 Toast 对象连续 show 时，只显示最早的 Toast 内容
+    /**
+     * 目的是防止多个 Toast 对象连续 show 时，只显示最早的 Toast 内容
+     */
+    private static Toast mToast;
 
     @SuppressLint("ShowToast")
     private static void initToast(boolean isShort) {
@@ -65,9 +69,9 @@ public class ToastUtil {
      */
     public static void showToast(boolean isShort, @StringRes final int resId, Object... values) {
         Context context = Utils.getAppContext();
-        if (context == null)
+        if (context == null) {
             return;
-
+        }
         String text = context.getString(resId);
         text = String.format(text, values);
         showToast(isShort, text);

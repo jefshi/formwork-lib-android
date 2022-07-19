@@ -8,6 +8,8 @@ import android.os.Looper;
 
 import androidx.annotation.NonNull;
 
+import com.csp.lib.log.LogCat;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -23,11 +25,12 @@ import java.util.concurrent.TimeUnit;
  * Modified by csp on 2018/03/10
  *
  * @author Blankj
- * @version 1.0.1
+ * @version 1.0.2
  */
+@SuppressWarnings("unused")
 public final class Utils {
 
-    private static final ExecutorService THREAD_POOL;
+    private final static ExecutorService THREAD_POOL;
     private final static Handler UI_HANDLER = new Handler(Looper.getMainLooper());
 
     @SuppressLint("StaticFieldLeak")
@@ -38,7 +41,7 @@ public final class Utils {
                 3,
                 0L,
                 TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<>(),
+                new LinkedBlockingQueue<Runnable>(),
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.AbortPolicy());
     }
@@ -46,6 +49,10 @@ public final class Utils {
     private Utils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
+
+    // ========================================
+    // 初始化与获取 Application 对象
+    // ========================================
 
     /**
      * Init utils.
@@ -65,7 +72,7 @@ public final class Utils {
      */
     public static void init(@NonNull final Application app) {
         if (sApplication == null) {
-            sApplication = app;
+            Utils.sApplication = app;
         }
     }
 
@@ -74,11 +81,11 @@ public final class Utils {
      *
      * @return the context of Application object
      */
+    @NonNull
     public static Application getApp() {
         if (sApplication != null) {
             return sApplication;
         }
-
         try {
             @SuppressLint("PrivateApi")
             Class<?> activityThread = Class.forName("android.app.ActivityThread");
@@ -89,13 +96,10 @@ public final class Utils {
             }
             init((Application) app);
             return (Application) app;
-        } catch (NoSuchMethodException e) {
-            LogCat.printStackTrace(e);
-        } catch (IllegalAccessException e) {
-            LogCat.printStackTrace(e);
-        } catch (InvocationTargetException e) {
-            LogCat.printStackTrace(e);
-        } catch (ClassNotFoundException e) {
+        } catch (NoSuchMethodException
+                | IllegalAccessException
+                | InvocationTargetException
+                | ClassNotFoundException e) {
             LogCat.printStackTrace(e);
         }
         throw new NullPointerException("u should init first");
@@ -105,9 +109,12 @@ public final class Utils {
      * @return {@link #getApp()}, {@link Application#getApplicationContext()}
      */
     public static Context getAppContext() {
-        Application app = getApp();
-        return app == null ? null : app.getApplicationContext();
+        return getApp().getApplicationContext();
     }
+
+    // ========================================
+    // 线程相关
+    // ========================================
 
     /**
      * 主线程执行任务

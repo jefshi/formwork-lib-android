@@ -11,6 +11,13 @@ android {
 dependencies {
     implementation dep.appcompat
 
+    // 日志
+    implementation 'io.github.jefshi:lib-log-core:1.0.0'
+    implementation 'io.github.jefshi:lib-log-android:1.0.1'
+
+    // 第三方工具
+    implementation dep.gson
+
     // 其他 Module
     implementation project(':lib-customview') // TODO 模板，module 名称修改，并准备 maven 引用
     implementation project(':lib-jar') // TODO 模板，module 名称修改，并准备 maven 引用
